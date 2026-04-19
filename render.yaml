@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: ummaahpro-backend
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: MONGODB_URL
+        value: mongodb+srv://rsibrahim19_db_user:fsiViBsE7bdWBc0U@cluster0.mrih0cd.mongodb.net/ummaahpro?retryWrites=true&w=majority&appName=Cluster0
+      - key: JWT_SECRET
+        generateValue: true
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: PORT
+        value: 8000
